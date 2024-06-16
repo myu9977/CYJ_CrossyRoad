@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -9,8 +10,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private float time = 5f;
 
     private int coinCount = 0;
+    private int score = 0;
+    private int increaseScore = 10;
+
+    private bool gameOver = false;
 
     private void Awake()
     {
@@ -29,6 +36,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateCoinUI();
+        StartCoroutine(ScoreIncreased());
     }
 
     public void AddCoin(int amount)
@@ -42,8 +50,27 @@ public class GameManager : MonoBehaviour
         coinText.text = coinCount.ToString();
     }
 
+    private IEnumerator ScoreIncreased()
+    {
+        while (!gameOver)
+        {
+            yield return new WaitForSeconds(time);
+            score += increaseScore;
+            UpdateScoreUI();
+        }
+        
+    }
 
+    private void UpdateScoreUI()
+    {
+        scoreText.text = score.ToString();
+    }
 
+    public void GameOver()
+    {
+        gameOver = true;
+        StopCoroutine(ScoreIncreased());
+    }
 
 
 }

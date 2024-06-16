@@ -1323,6 +1323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   coinText: {fileID: 770505072}
+  scoreText: {fileID: 821387657}
 --- !u!4 &972893793
 Transform:
   m_ObjectHideFlags: 0
