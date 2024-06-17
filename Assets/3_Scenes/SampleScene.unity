@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  coinSoundClip: {fileID: 8300000, guid: 87404df943fa9eb489d10f7f7973d3d4, type: 3}
 --- !u!1 &300606522
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +483,55 @@ Transform:
   - {fileID: 4515146159766773307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &373083772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373083773}
+  - component: {fileID: 373083774}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &373083773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373083772}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 972893793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &373083774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373083772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ad63019ac04524aaf8c856b4d8764a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectVolume: 0.3
+  soundEffectPitchVariance: 0.2
+  musicVolume: 0.1
+  musicClip: {fileID: 8300000, guid: a1dc3fed6f29a764b8374bb2fab0d576, type: 3}
+  soundSourcePrefab: {fileID: 2211919800957032818, guid: c3739ea182b2b2b499151dfb9675206c, type: 3}
 --- !u!1 &449101434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,7 +1419,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 373083773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &972893794
@@ -3183,6 +3234,8 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   rotationSpeed: 10
+  moveSoundClip: {fileID: 8300000, guid: c8004999b46587643a7c51f1876e2112, type: 3}
+  jumpSoundClip: {fileID: 8300000, guid: bd5858a572646dd40a8ab9b067a03e26, type: 3}
 --- !u!114 &5903297864800619603
 MonoBehaviour:
   m_ObjectHideFlags: 0

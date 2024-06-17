@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public float rotationSpeed = 10f;
 
+    [SerializeField] private AudioClip moveSoundClip;
+    [SerializeField] private AudioClip jumpSoundClip;
+
+
     private void Awake()
     {
         movementController = GetComponent<CharacterController>();
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         movementDirection = direction;
+        SoundManager.PlayClip(moveSoundClip);
     }
 
     private void ApplyMovement(Vector2 direction)
@@ -57,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             movementRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            SoundManager.PlayClip(jumpSoundClip);
             isGrounded = false;
         }
         
