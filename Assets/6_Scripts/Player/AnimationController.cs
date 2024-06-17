@@ -7,7 +7,7 @@ public class AnimationController : MonoBehaviour
 
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
     }
 }
