@@ -1333,6 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972893793}
   - component: {fileID: 972893792}
+  - component: {fileID: 972893794}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1371,6 +1372,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972893794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972893791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840e60daa622c2f4a9dced11bc1fb729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Car
+    prefab: {fileID: 5288681282625395368, guid: 614f01a97423ad84f856017f709af8db, type: 3}
+    size: 5
 --- !u!1 &1039853305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,8 +1540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3646a57d1492fbd41a98f70354ea9df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 5288681282625395368, guid: 614f01a97423ad84f856017f709af8db, type: 3}
+  objectPool: {fileID: 972893794}
   spawnPoint: {fileID: 512840580}
+  carDataArray:
+  - {fileID: 11400000, guid: c8d722f2db0ef684097da33b2a1daa07, type: 2}
+  - {fileID: 11400000, guid: 8f26ca13424d00242a0c58bd3cbe06d8, type: 2}
+  - {fileID: 11400000, guid: 6e75149ec19b2f642b8af8083f75f329, type: 2}
 --- !u!1 &1387692836
 GameObject:
   m_ObjectHideFlags: 0
