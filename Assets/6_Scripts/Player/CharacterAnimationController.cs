@@ -22,14 +22,28 @@ public class CharacterAnimationController : AnimationController
 
     private void Move(Vector2 vecter)
     {
-        animator.SetBool(isRun, vecter.magnitude > magnituteThreshold);
-        //animator.SetBool(isIdle, false);
+        if (vecter.magnitude > magnituteThreshold)
+        {
+            animator.SetBool(isRun, true);
+            //animator.SetBool(isIdle, false);
+        }
+        else
+        {
+            animator.SetBool(isRun, false);
+            Idle();
+        }
     }
 
     private void Jump()
     {
         animator.SetBool(isJump, true);
         //animator.SetBool(isIdle, false);
+    }
+
+    private void OnLanding()
+    {
+        animator.SetBool(isJump, false);
+        //animator.SetBool(isIdle, true);
     }
 
     private void Hit()
