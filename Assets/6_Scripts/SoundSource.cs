@@ -23,6 +23,6 @@ public class SoundSource : MonoBehaviour
     public void Disable()
     {
         audioSource.Stop();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
