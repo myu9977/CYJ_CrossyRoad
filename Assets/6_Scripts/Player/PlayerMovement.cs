@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movementDirection = Vector2.zero;
 
+    private bool isGrounded;
+
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float rotationSpeed = 10f;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ApplyMovement(movementDirection);
+        CheckGround();
     }
 
     private void Move(Vector2 direction)
@@ -50,6 +53,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        movementRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        if (isGrounded)
+        {
+            movementRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+        
+    }
+
+    private void CheckGround()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, 1.1f))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
